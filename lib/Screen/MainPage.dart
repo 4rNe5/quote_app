@@ -16,8 +16,9 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List<SwipeItem> _swipeItems = [];
-  late MatchEngine _matchEngine;
+  MatchEngine? _matchEngine;
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  bool _isLoading = true;
 
   @override
   void initState() {
@@ -36,9 +37,13 @@ class _MainPageState extends State<MainPage> {
         }).toList();
 
         _matchEngine = MatchEngine(swipeItems: _swipeItems);
+        _isLoading = false;
       });
     } catch (e) {
       print("Error fetching quotes: $e");
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -70,19 +75,21 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      backgroundColor: const Color(0xFFEFEFEF), // 배경색 설정
-      body: _matchEngine == null || _swipeItems.isEmpty
+      backgroundColor: const Color(0xFFEFEFEF), // Background color
+      body: _isLoading
           ? Center(child: CircularProgressIndicator())
+          : _swipeItems.isEmpty
+          ? Center(child: Text("No quotes available"))
           : Column(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.7,
             child: SwipeCards(
-              matchEngine: _matchEngine,
+              matchEngine: _matchEngine!,
               itemBuilder: (BuildContext context, int index) {
                 Quote quote = _swipeItems[index].content;
                 return Card(
-                  color: const Color(0xFFFFFFFF), // 카드 색상 설정
+                  color: const Color(0xFFFFFFFF), // Card color
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -90,8 +97,7 @@ class _MainPageState extends State<MainPage> {
                       children: [
                         Text(
                           quote.message,
-                          style:
-                          Theme.of(context).textTheme.headlineSmall,
+                          style: Theme.of(context).textTheme.headlineSmall,
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 16.0),
