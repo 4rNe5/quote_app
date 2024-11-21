@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:quote_app/component/AppBar.dart';
+import 'Screen/SettingScreen.dart';
 import 'package:quote_app/logic/GetQuoteData.dart';
 import 'package:quote_app/Screen/MainPage.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    home: AppView(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
