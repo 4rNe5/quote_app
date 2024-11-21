@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quote_app/logic/GetQuoteData.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: fetchQuotes,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
