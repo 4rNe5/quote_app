@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xFFE3E3E3), // 원하는 Hex 코드
+        ),
         useMaterial3: true,
       ),
       home: SplashScreen(),
