@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../main.dart';
+import 'package:quote_app/Screen/MainPage.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => MyHomePage(title: 'Flutter Demo Home Page')),
+            builder: (context) => MainPage(title: 'Quote - Splasharr')),
       );
     });
   }

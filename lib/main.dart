@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:quote_app/component/AppBar.dart';
 import 'Screen/SettingScreen.dart';
 import 'package:quote_app/logic/GetQuoteData.dart';
+import 'package:quote_app/Screen/SplashScreen.dart';
 import 'package:quote_app/Screen/MainPage.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: AppView(),
+    home: MyApp(),
   ));
 }
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MainPage(title: 'Flutter Demo Home Page'),
+      home: SplashScreen(),
     );
   }
 }

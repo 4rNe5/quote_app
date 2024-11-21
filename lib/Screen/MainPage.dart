@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quote_app/logic/GetQuoteData.dart';
+import 'package:quote_app/component/AppBar.dart';
+import 'package:quote_app/Screen/SettingScreen.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key, required this.title});
@@ -22,10 +24,21 @@ class _MyHomePageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
+      appBar: CustomAppBar(
+      title: "",
+      actions: [
+        IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SettingsView()),
+            );
+          },
+          icon: const Icon(Icons.settings),
+          color: Colors.black,
+        ),
+      ],
+    ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
