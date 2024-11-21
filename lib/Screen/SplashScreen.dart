@@ -15,7 +15,8 @@ class _SplashScreenState extends State<SplashScreen> {
       // 3초 후 메인 화면으로 이동
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => MyHomePage(title: 'Flutter Demo Home Page')),
+        MaterialPageRoute(
+            builder: (context) => MyHomePage(title: 'Flutter Demo Home Page')),
       );
     });
   }
