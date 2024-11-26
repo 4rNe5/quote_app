@@ -43,38 +43,47 @@ class QuoteSwipeCard extends StatelessWidget {
         padding: const EdgeInsets.all(24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              quote.message,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall!
-                  .copyWith(
-                fontWeight: FontWeight.w400,
-                fontSize: 23.0,
+            Expanded(
+              child: Center(
+                child: Text(
+                  quote.message,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .copyWith(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 23.0,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16.0),
+            Divider(height: 4, thickness: 2, color: Color(0xFF7C7C7C),),
+            SizedBox(height: 25.0),
             Text(
               '${quote.author}',
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium!
                   .copyWith(
-                fontSize: 20.0,
+                fontWeight: FontWeight.w400,
+                fontSize: 22.0,
               ),
             ),
-            const SizedBox(height: 8.0),
+            SizedBox(height: 8.0),
             Text(
               '"${quote.authorProfile}"',
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium!
                   .copyWith(
+                fontWeight: FontWeight.w200,
                 fontSize: 16.0,
               ),
             ),
+            SizedBox(height: 30)
           ],
         ),
       ),

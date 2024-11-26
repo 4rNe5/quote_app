@@ -15,10 +15,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title ?? '', // Handle null title
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(
+            color: Colors.black
+        ),
       ),
       iconTheme: const IconThemeData(color: Colors.black),
-      actions: actions ?? [], // Handle null actions
+      actions: actions ?? [], // Handle null actioxns
       backgroundColor: Color(0xFFE3E3E3), // Optional: Better contrast
     );
   }
