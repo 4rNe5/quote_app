@@ -13,12 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Quotes',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFFE3E3E3), // 원하는 Hex 코드
         ),
         useMaterial3: true,
+        fontFamily: 'MaruBuri'
       ),
       home: const SplashScreen(),
     );
