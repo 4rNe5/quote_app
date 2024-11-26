@@ -32,7 +32,10 @@ class _SettingsViewState extends State<SettingsView> {
                 children: [
                   const Text(
                     "알림 허용",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'NanumSquare'
+                    ),
                   ),
                   CupertinoSwitch(
                     value: _isChecked,
@@ -54,7 +57,10 @@ class _SettingsViewState extends State<SettingsView> {
                 children: [
                   const Text(
                     "약관 및 개인정보",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'NanumSquare'
+                    ),
                   ),
                   IconButton(
                     onPressed: () {},
@@ -71,11 +77,17 @@ class _SettingsViewState extends State<SettingsView> {
                 children: [
                   Text(
                     "버전 정보",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'NanumSquare'
+                    ),
                   ),
                   Text(
                     "현재 1.0",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'NanumSquare'
+                    ),
                   )
                 ],
               ),
