@@ -4,6 +4,7 @@ import 'package:quote_app/component/AppBar.dart';
 import 'package:quote_app/Screen/SettingScreen.dart';
 import 'package:swipe_cards/swipe_cards.dart';
 import 'package:quote_app/model/QuoteClass.dart';
+import 'package:quote_app/component/QuoteSwipeCard.dart'; // 새로 생성한 컴포넌트 import
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key, this.title});
@@ -75,74 +76,22 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      backgroundColor: Color(0xFFE3E3E3), // Changed background color to white
+      backgroundColor: Color(0xFFE3E3E3),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : _swipeItems.isEmpty
           ? const Center(child: Text("No quotes available"))
           : Center(
-        child: SizedBox(
-          width: 350, // 카드 컴포넌트의 폭
-          height: 540, // 카드 컴포넌트의 높이
-          child: SwipeCards(
-            matchEngine: _matchEngine!,
-            itemBuilder: (BuildContext context, int index) {
-              Quote quote = _swipeItems[index].content;
-              return Card(
-                color: Colors.white, // Changed card color to white
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        quote.message,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall!
-                            .copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24.0,
-                        ), // Adjusted text style
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 16.0),
-                      Text(
-                        '- ${quote.author}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(
-                          fontSize: 16.0,
-                        ), // Adjusted text style
-                      ),
-                      const SizedBox(height: 8.0),
-                      Text(
-                        '${quote.authorProfile}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(
-                          fontSize: 16.0,
-                        ), // Adjusted text style
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-            onStackFinished: () {
-              _showSnackBar("No more quotes");
-            },
-            itemChanged: (SwipeItem item, int index) {
-              print("Current quote: ${item.content.author}");
-            },
-            upSwipeAllowed: true,
-            fillSpace: true,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            QuoteSwipeCard(
+              swipeItems: _swipeItems,
+              matchEngine: _matchEngine!,
+              onStackFinished: () => _showSnackBar("No more quotes"),
+            ),
+            const SizedBox(height: 90.0), // 카드 영역 아래에 여백 추가
+          ],
         ),
       ),
     );
