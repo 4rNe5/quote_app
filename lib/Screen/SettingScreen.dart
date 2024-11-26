@@ -15,7 +15,7 @@ class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEFEFEF),
+      backgroundColor: const Color(0xFFE3E3E3),
       appBar: const CustomAppBar(
         title: "설정",
         actions: [],
