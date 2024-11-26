@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:quote_app/Screen/MainPage.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -11,12 +13,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       // 3초 후 메인 화면으로 이동
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => MainPage()),
+            builder: (context) => const MainPage()),
       );
     });
   }

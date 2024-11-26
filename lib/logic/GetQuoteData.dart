@@ -17,7 +17,7 @@ Future<List<Quote>> fetchQuotes() async {
       List<Quote> quotes = jsonList.map((json) => Quote.fromJson(json)).toList();
 
       // 개발자 로그 사용 (색상, 이모지 포함)
-      quotes.forEach((quote) {
+      for (var quote in quotes) {
         developer.log(
             '📜 Quote Details',
             name: '✨ QuoteApp',
@@ -27,7 +27,7 @@ Future<List<Quote>> fetchQuotes() async {
               '💬 Message': quote.message
             }
         );
-      });
+      }
 
       return quotes;
     } else {

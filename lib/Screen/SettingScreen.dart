@@ -16,7 +16,7 @@ class _SettingsViewState extends State<SettingsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFEFEFEF),
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "설정",
         actions: [],
       ),
@@ -63,17 +63,17 @@ class _SettingsViewState extends State<SettingsView> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     "버전 정보",
                     style: TextStyle(fontSize: 18),
                   ),
-                  const Text(
+                  Text(
                     "현재 1.0",
                     style: TextStyle(fontSize: 18),
                   )
