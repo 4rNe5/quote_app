@@ -28,10 +28,16 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white, // 스플래시 배경 색상
       body: Center(
-        child: Image.asset(
-          'assets/img/setting.png', // 로고 경로
-          width: 150,
-          height: 150,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const CircularProgressIndicator(), // 로딩 인디케이터
+            const SizedBox(height: 20),
+            const Text(
+              '로딩 중...',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ), // 로딩 메시지
+          ],
         ),
       ),
     );
